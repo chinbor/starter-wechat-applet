@@ -1,0 +1,14 @@
+<!-- pages/home/index.wxml -->
+<page isTab="{{true}}" hasHeader="{{true}}" customHeader>
+  <view slot="header">
+    <view class="header flex" style="{{serchPosition}}">
+      <view class="search flex">
+        <view class="search-icon"></view>
+        <input class="search-input" type="text" placeholder-style="color: rgba(0,0,0,0.5);" placeholder="请输入企业名称进行搜索" bindinput="searchInputChange" focus />
+      </view>
+    </view>
+  </view>
+  <view class="home flex-center">
+    home
+  </view>
+</page>

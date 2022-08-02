@@ -1,0 +1,85 @@
+/* components/page/index.wxss */
+.custom-page {
+  width: 100%;
+  height: 100%;
+}
+
+.custom-page__header,
+.custom-page__body,
+.custom-page__footer {
+  width: 100%;
+}
+
+.custom-page__header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.custom-page__header__wrapper {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.custom-page__header__capsule {
+  position: absolute;
+  height: 100%;
+}
+
+/* 注意这里的胶囊样式使用px */
+.custom-page__header__capsule__two {
+  border: 0.1px solid rgba(1, 1, 1, 0.30);
+  background: transparent;
+}
+
+.custom-page__header__back {
+  position: absolute;
+  left: 24rpx;
+}
+
+.custom-page__header__home {
+  position: absolute;
+  right: 24rpx;
+}
+
+.custom-page__header__split {
+  width: 1rpx;
+  height: 37rpx;
+  opacity: 1;
+  background: rgba(1, 1, 1, 0.30);
+}
+
+.custom-page__header__capsule__back,
+.custom-page__header__capsule__home {
+  align-items: center;
+}
+
+.custom-page__header__capsule__back {
+  right: 24rpx;
+}
+
+.custom-page__header__capsule__home {
+  left: 24rpx;
+}
+
+.custom-page__header__icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.custom-page__header__title {
+  position: absolute;
+}
+
+.custom-page__footer {
+  position: fixed;
+  z-index: 99;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+}

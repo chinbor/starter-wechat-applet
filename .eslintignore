@@ -1,0 +1,7 @@
+# sdk目录下面的js文件忽略检测
+sdk/**/*.js
+common/wxs/util.wxs
+
+# 不忽略以下文件（eslint默认规则是不检测这两文件的）
+!.prettierrc.js
+!.lintstagedrc.js

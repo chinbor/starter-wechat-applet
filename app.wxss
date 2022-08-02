@@ -1,0 +1,57 @@
+/**app.wxss**/
+page {
+  --white: #fff;
+  --black: #000;
+  /* 字体粗细 */
+  --text-medium: 600;
+  --text-regular: 400;
+  --text-light: 200;
+  /* 字体大小 */
+  --font-xl: 44rpx;
+  --font-l: 34rpx;
+  --font-m: 30rpx;
+  --font-s: 28rpx;
+  --font-xs: 24rpx;
+  /* 全局页面背景色 */
+  background-color: var(--white);
+  /* 全局页面字体色 */
+  color: var(--black);
+}
+
+/* flex相关样式 */
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* 单行截断 */
+.single-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* 多行截断 */
+.multi-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* iphonex需要显示的增加底部的padding-bottom，预设为52rpx */
+.iphonex {
+  padding-bottom: 52rpx;
+}

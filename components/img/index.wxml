@@ -1,0 +1,2 @@
+<!-- components/img/index.js.wxml -->
+<image class="default-pic" src="{{src}}" mode="{{mode}}" style="{{imageStyle}}" show-menu-by-longpress="{{showMenu}}" lazy-load bindload="loadSuccess" binderror="loadError"></image>

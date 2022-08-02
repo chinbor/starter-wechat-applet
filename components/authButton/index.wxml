@@ -1,0 +1,9 @@
+<!-- components/authButton/index.wxml -->
+<button class="login-btn" wx:if="{{authType === 1}}" hover-class="none" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+  <slot></slot>
+  <view class="cover" wx:if="{{!hasAuth}}"></view>
+</button>
+<button class="login-btn" wx:if="{{authType === 2}}" hover-class="none" bind:tap="getUserInfo">
+  <slot></slot>
+  <view class="cover" wx:if="{{!hasAuth}}"></view>
+</button>

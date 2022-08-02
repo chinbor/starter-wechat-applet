@@ -1,0 +1,44 @@
+.switch {
+  width: 80rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  border: 2rpx solid var(--white);
+  background: var(--white);
+  position: relative;
+  transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+
+.switch .dot {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  left: 0;
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  background: var(--white);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.4);
+  transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+
+.switch-checked .dot {
+  left: 100%;
+  transform: translate(-100%, -50%);
+}
+
+.switch .switch-cover {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80rpx;
+  height: 36rpx;
+  border-radius: 18rpx;
+  background: var(--white);
+  transition: all 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+
+.switch-checked .switch-cover {
+  transform: scale(0);
+}

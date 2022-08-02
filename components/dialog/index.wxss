@@ -1,0 +1,43 @@
+/* components/dialog/index.wxss */
+.dialog_overlay,
+.dialog {
+  position: fixed;
+  display: none;
+  z-index: 999;
+  animation: dialog-fade-in 0.3s ease;
+}
+
+.dialog_overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dialog {
+  position: fixed;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+.dialog_overlay.dialog--show,
+.dialog.dialog--show {
+  display: block;
+}
+
+.dialog.dialog__center {
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+@keyframes dialog-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

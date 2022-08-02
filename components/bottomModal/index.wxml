@@ -1,0 +1,7 @@
+<!-- components/bottomModal/index.wxml -->
+<view class="modal-mask {{active ? 'active' : ''}} {{showMask ? '' : 'transparent'}}" catchtouchmove="prevent" hidden="{{hidden}}" bind:tap="close"></view>
+<view class="modal" style="background-color: {{bgColor}}" catchtouchmove="prevent">
+  <view class="modal-content">
+    <slot></slot>
+  </view>
+</view>

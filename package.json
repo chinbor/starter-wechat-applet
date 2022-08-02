@@ -1,0 +1,56 @@
+{
+  "scripts": {
+    "commit": "git-pick && git cz",
+    "dev": "node ./scripts/initEnv.js dev && node ./scripts/upload.js",
+    "prod": "node ./scripts/initEnv.js prod && node ./scripts/upload.js",
+    "init": "node ./scripts/initEnv.js dev"
+  },
+  "dependencies": {
+    "miniprogram-ci": "^1.8.25"
+  },
+  "devDependencies": {
+    "@chinbor/git-pick": "^0.0.6",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "cz-conventional-changelog-zh": "0.0.2",
+    "eslint": "^8.17.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.3.4",
+    "prettier": "^2.6.2",
+    "validate-commit-msg": "^2.14.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog-zh"
+    }
+  },
+  "wx": {
+    "upload": {
+      "wxVersion": "1.0.0",
+      "wxDesc": "projectName status detail"
+    },
+    "env": {
+      "the3rdHosts": {
+        "tencent": {
+          "dev": "https://tencentDev",
+          "prod": "https://tencentProd"
+        },
+        "ali": {
+          "dev": "https://aliDev",
+          "prod": "https://aliProd"
+        }
+      },
+      "host": {
+        "dev": "https://api-dev.zodance.com",
+        "prod": "https://api.zodance.com"
+      },
+      "aliOssHost": "https://zodance.oss.aliyuncs.com/images",
+      "trackHost": {
+        "dev": "https://api-dev.zodance.com/api/real_time",
+        "prod": "https://api-prod.zodance.com/api/real_time"
+      }
+    }
+  }
+}

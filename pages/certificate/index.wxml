@@ -1,0 +1,4 @@
+<!-- pages/certificate/index.wxml -->
+<page isTab="{{true}}" title="证书页" hasHeader="{{true}}" headerTitleColor="#000" showHome whiteCapluse="{{false}}">
+  <view class="certificate flex-center">certificate</view>
+</page>

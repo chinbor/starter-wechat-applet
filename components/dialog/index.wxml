@@ -1,0 +1,5 @@
+<!-- components/dialog/index.wxml -->
+<view wx:if="{{overlay}}" class="dialog_overlay {{show ? 'dialog--show' : ''}}" bind:tap="onClickOverlay" catch:touchmove="nothing" />
+<view class="dialog dialog__center {{show ? 'dialog--show' : ''}}" catch:touchmove="nothing">
+  <slot />
+</view>

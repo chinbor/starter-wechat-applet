@@ -1,0 +1,4 @@
+<!-- pages/userCenter/index.wxml -->
+<page isTab="{{true}}" title="个人中心" hasHeader="{{true}}" headerTitleColor="#000" showHome whiteCapluse="{{false}}">
+  <view class="user-center flex-center">user-center</view>
+</page>

@@ -1,0 +1,12 @@
+<!-- 没有更多数据 -->
+<view class="slide-loading">
+  <view class="mod-no-more-data text-bold" wx:if="{{isEnd}}">
+    <slot></slot>
+    <view class="no-more-text" wx:if="{{desc}}">{{desc}}</view>
+  </view>
+  <view class="mod-loading-data" wx:if="{{!isEnd}}">
+    <view class="loading-point"></view>
+    <view class="loading-point"></view>
+    <view class="loading-point"></view>
+  </view>
+</view>

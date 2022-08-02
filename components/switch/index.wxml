@@ -1,0 +1,4 @@
+<view class="switch {{checked ? 'switch-checked' : ''}}" style="{{dotSize && dotSize > height ? 'border: none;' : 'border: 2rpx solid #ECECEC;'}} border-color: {{checked ? checkedColor : noCheckedColor}}; background: {{checked ? checkedColor : noCheckedColor}}; width: {{width}}rpx; height: {{height}}rpx; border-radius: {{height / 2}}rpx;" bind:tap="changeStatus">
+  <view class="switch-cover" style="background: {{noCheckedColor}};"></view>
+  <view class="dot" style="background: {{dotColor}}; width: {{dotSize && dotSize > height? dotSize : height}}rpx; height: {{dotSize && dotSize > height ? dotSize : height}}rpx; border-radius: {{dotSize ? dotSize / 2 : height / 2}}rpx;"></view>
+</view>

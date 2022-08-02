@@ -1,0 +1,39 @@
+<!-- components/page/index.wxml -->
+<view class="custom-page {{isIphoneX && !isTab ? 'iphonex' : ''}}" style="padding-top: {{hasHeader ? headerHeight : 0}}px;">
+  <view class="custom-page__header" wx:if="{{hasHeader}}" style="height: {{headerHeight}}px; background-color: {{headerBgColor}};">
+    <view wx:if="{{!customHeader}}" class="custom-page__header__wrapper" style="{{navPosition}}">
+      <view class="custom-page__header__capsule" style="{{capsulePosition}}">
+        <!-- 返回按钮 + home按钮 -->
+        <view wx:if="{{showBack && showHome}}" class="custom-page__header__capsule__two flex-center" style="{{capsule2btnsStyle}}">
+          <image class="custom-page__header__icon custom-page__header__back" src="{{whiteCapluse ? '/images/icons/back.svg' : '/images/icons/back-black.svg'}}" bind:tap="goBack" />
+          <view class="custom-page__header__split"></view>
+          <image class="custom-page__header__icon custom-page__header__home" src="{{whiteCapluse ? '/images/icons/home.svg' : '/images/icons/home-black.svg'}}" bind:tap="goHome" />
+        </view>
+        <!-- 返回按钮 -->
+        <view wx:if="{{showBack}}" class="custom-page__header__capsule__back flex" style="{{capsule1btnStyle}}">
+          <image class="custom-page__header__icon" src="{{whiteCapluse ? '/images/icons/back.svg' : '/images/icons/back-black.svg'}}" bind:tap="goBack" />
+        </view>
+        <!-- home按钮 -->
+        <view wx:if="{{showHome}}" class="custom-page__header__capsule__home flex" style="{{capsule1btnStyle}}">
+          <image class="custom-page__header__icon" src="{{whiteCapluse ? '/images/icons/home.svg' : '/images/icons/home-black.svg'}}" bind:tap="goHome" />
+        </view>
+      </view>
+      <view wx:if="{{title}}" class="custom-page__header__title single-ellipsis" style="{{titleStyle}} color: {{headerTitleColor}}">
+        {{title}}
+      </view>
+    </view>
+    <block wx:else>
+      <slot name="header"></slot>
+    </block>
+  </view>
+  <view class="custom-page__body" style="padding-bottom: {{hasFooter ? footerHeight : 0}}px">
+    <slot></slot>
+  </view>
+  <view class="custom-page__footer {{isIphoneX && !isTab ? 'iphonex' : ''}}" wx:if="{{hasFooter}}" style="color: #fff;">
+    <slot name="footer"></slot>
+  </view>
+  <!-- 直接分享给朋友（卡片） -->
+  <canvas wx:if="{{hasCanvas && showCanvas}}" canvas-id="shareFriends" style="width: 420px;height: 336px;position: absolute;top:-999px;left: 0;"></canvas>
+  <!-- 保存到相册（海报） -->
+  <canvas wx:if="{{hasCanvas && showCanvas}}" canvas-id="shareMoments" style="width: 750px;height: 1334px;position: absolute;top:-1999px;left: 0;"></canvas>
+</view>

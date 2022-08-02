@@ -1,0 +1,59 @@
+/* 没有更多数据 */
+.mod-no-more-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80rpx;
+}
+
+.mod-loading-data {
+  display: flex;
+  align-items: center;
+  width: 64rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.mod-loading-data .loading-point {
+  display: inline-block;
+  width: 14rpx;
+  height: 14rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+  background-color: var(--white);
+  animation: loadingdata 0.6s ease infinite;
+  animation-direction: alternate;
+}
+
+.mod-loading-data .loading-point:last-child {
+  margin-right: 0px;
+}
+
+@keyframes loadingdata {
+  0% {
+    background-color: var(--bgColor-primary-100);
+  }
+
+  100% {
+    background-color: var(--bgColor-primary-400);
+  }
+}
+
+.mod-loading-data .loading-point:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.mod-loading-data .loading-point:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.mod-loading-data .loading-point:nth-child(3) {
+  animation-delay: 0.9s;
+}
+
+.no-more-text {
+  font-size: var(--font-xs);
+  color: #999;
+  line-height: var(--font-xs);
+}

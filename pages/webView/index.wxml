@@ -1,0 +1,2 @@
+<!-- pages/webview/index.wxml -->
+<web-view src="{{webviewUrl}}" bindmessage="bindGetMsg" bindload="successed" binderror="failed"></web-view>

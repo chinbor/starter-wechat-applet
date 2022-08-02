@@ -1,0 +1,162 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable radix */
+/* eslint-disable no-var */
+/**
+ * 模板wxs工具集合
+ * 用法：
+ * 1.引用wxs <wxs module ="util" src="../../wxs/util.wxs"></wxs>
+ * 2.使用对应模板工具 {{util.formatNumberTo(amountInfo.fav,2)}}
+ *
+ * formatNumberTo 格式化指定位数小数
+ * cutter 截断超长内容
+ *
+ * 官方文档：https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxs/index.html
+ * 注意事项：
+ * 只能使用 var 来定义变量，表现形式和 javascript 一样，会有变量提升。
+ * 若在模块中想要引用其他模块，只能通过 require 实现。
+ * 不能使用 new Date() 应该使用 getDate()
+ */
+
+// 将毫秒数转成 天 时 分 秒的形式
+function msToDHMS (ms) {
+  ms < 0 && (ms = 0)
+  var day = Math.floor( ms / (24 * 1000 * 60 * 60))
+  if (day > 0) {
+    ms = ms % (24 * 1000 * 60 * 60)
+  }
+  var hour = Math.floor( ms / (1000 * 60 * 60))
+  if (hour > 0) {
+    ms = ms % (1000 * 60 * 60)
+  }
+  var min = Math.floor( ms / (1000 * 60))
+  if (min > 0) {
+    ms = ms % (1000 * 60)
+  }
+  var s = Math.floor( ms / (1000))
+  return [day, hour, min, s]
+}
+module.exports = {
+
+  /**
+   * 时间格式化
+   * @param {Number} unixTime 当前时间，精确到毫秒
+   * @param {String} format 时间格式；例如：{YYYY}-{MM}-{DD} {HH}:{mm}:{ss}
+   *  年:YYYY或YY,例如：2016或16
+   *  月:MM或M,例如：03或3
+   *  日:DD或D,例如：06或6
+   *  时:hh或h(12小时制)HH或H(24小时制),
+   *  分:mm或m,
+   *  秒:ss或s,
+   *  星期：W，
+   */
+  timeFormat: function (_unixTime, format) {
+    if (!_unixTime || isNaN(_unixTime)) {
+      return ''
+    }
+    var unixTime = _unixTime.toString().length === 13 ? _unixTime : Number(_unixTime.toString() + '000')
+    // eslint-disable-next-line no-undef
+    var time = getDate(parseInt(unixTime))
+    var year = time.getFullYear() // 年
+    var month = time.getMonth() + 1 // 月
+    var day = time.getDate() // 日
+    var week = time.getDay() // 星期
+    var hour = time.getHours() // 时
+    var minute = time.getMinutes() // 分
+    var second = time.getSeconds() // 秒
+    var weekEnum = {
+      '0': '日',
+      '1': '一',
+      '2': '二',
+      '3': '三',
+      '4': '四',
+      '5': '五',
+      '6': '六',
+    }
+    var result = format
+    result = result.replace('{YYYY}', year)
+    result = result.replace('{YY}', year.toString().substring(2))
+    result = result.replace('{MM}', month > 9 ? month : '0' + month)
+    result = result.replace('{M}', month)
+    result = result.replace('{DD}', day > 9 ? day : '0' + day)
+    result = result.replace('{D}', day)
+    result = result.replace('{HH}', hour > 9 ? hour : '0' + hour)
+    result = result.replace('{H}', hour)
+    if (hour > 12) {
+      hour = hour - 12
+    }
+    result = result.replace('{hh}', hour > 9 ? hour : '0' + hour)
+    result = result.replace('{h}', hour)
+    result = result.replace('{mm}', minute > 9 ? minute : '0' + minute)
+    result = result.replace('{m}', minute)
+    result = result.replace('{ss}', second > 9 ? second : '0' + second)
+    result = result.replace('{s}', second)
+    result = result.replace('{W}', weekEnum[week])
+    return result
+  },
+
+  // 格式化百分号
+  formatPercent: function (percent) {
+    if (!percent || percent === 0) {
+      return ''
+    }
+    if (percent.indexOf('%') > -1) {
+      return percent
+    }
+    return percent * 100 + '%'
+  },
+
+  // 数值四舍五入
+  valueRound: function (val) {
+      return Math.round(val)
+  },
+
+  // 数值向上取整
+  valueCeil: function (val) {
+    return Math.ceil(val)
+  },
+
+  // 将一个时间戳变成多少天前的格式
+  getDayBefore: function(date) {
+    while(date.indexOf('-') > -1) {
+      date = date.replace('-', '/')
+    }
+    var currMs = getDate().getTime()
+    var ms = getDate(date).getTime()
+    var list = msToDHMS(currMs - ms)
+    if (list.toString() === '0,0,0,0') {
+      return '1秒前'
+    }
+    if (list[0]) {
+      return list[0] + '天前'
+    } else if (list[1]) {
+      return list[1] + '小时前'
+    } else if (list[2]) {
+      return list[2] + '分钟前'
+    } else if (list[3]) {
+      return list[3] + '秒前'
+    } else {
+      return 0
+    }
+  },
+
+  // 毫秒数转成时分秒
+  msToMS: function(ms) {
+    var str = ''
+    var list = msToDHMS(ms)
+    if (list[1]) {
+      str += list[1] + 'h'
+    }
+    if (list[2]) {
+      str += list[2] + 'min'
+    }
+    if (list[3]) {
+      str += list[3] + 's'
+    }
+    return str
+  },
+
+  // 判断是否为非空字符串
+  isNotEmptyString: function (str) {
+    return str.trim().length > 0
+  }
+}
