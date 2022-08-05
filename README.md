@@ -1,4 +1,4 @@
-# 蓉归小程序项目
+# 小程序项目模板
 
 ## 一、目录结构
 ```sh
@@ -38,7 +38,7 @@ ronggui-mini
 
 ## 二、如何入手
 
-1. 执行 `npm prepare` 安装husky钩子，然后执行`npx husky add .husky/pre-commit 'npx lint-staged'` 和 `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'`
+1. 执行 `npm run prepare` 安装husky钩子，然后执行`npx husky add .husky/pre-commit 'npx lint-staged'` 和 `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'`
 2. `project.config.json` 更改appid为你的开发id
 3. `package.json` 配置wx字段
 4. `npm run init`
