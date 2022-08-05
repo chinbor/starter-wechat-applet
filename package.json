@@ -3,7 +3,8 @@
     "commit": "git-pick && git cz",
     "dev": "node ./scripts/initEnv.js dev && node ./scripts/upload.js",
     "prod": "node ./scripts/initEnv.js prod && node ./scripts/upload.js",
-    "init": "node ./scripts/initEnv.js dev"
+    "init": "node ./scripts/initEnv.js dev",
+    "prepare": "husky install"
   },
   "dependencies": {
     "miniprogram-ci": "^1.8.25"

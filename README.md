@@ -38,7 +38,8 @@ ronggui-mini
 
 ## 二、如何入手
 
-1. `project.config.json` 更改appid为你的开发id
-2. `package.json` 配置wx字段
-3. `npm run init`
-4. 全局搜索FIXME 以及 NOTE（会给到相应的提示）
+1. 执行 `npm prepare` 安装husky钩子，然后执行`npx husky add .husky/pre-commit 'npx lint-staged'` 和 `npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'`
+2. `project.config.json` 更改appid为你的开发id
+3. `package.json` 配置wx字段
+4. `npm run init`
+5. 全局搜索FIXME 以及 NOTE（会给到相应的提示）
