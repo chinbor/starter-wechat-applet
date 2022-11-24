@@ -37,7 +37,7 @@ function getHeader(currentHeader) {
 
 export default class Http {
   constructor() {
-    this._retryTimes = 2
+    this._retryTimes = retryNum
   }
 
   request(url, data, method = 'GET', header, complete) {
