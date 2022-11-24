@@ -1,4 +1,4 @@
-import http from '../utils/http'
+import Http from '../utils/http'
 import Loading from '../common/ui/loading'
 import { toast } from '../utils/helpers'
 
@@ -50,6 +50,8 @@ function getErrorCode2text(code) {
 export default function fetch(url, data, method, header, complete, silent = false, title) {
   return new Promise((resolve, reject) => {
     !silent && Loading.showLoading(title)
+
+    const http = new Http()
 
     http
       .request(url, data, method, header, complete)

@@ -35,8 +35,10 @@ function getHeader(currentHeader) {
   return header
 }
 
-export default {
-  _retryTimes: 2,
+export default class Http {
+  constructor() {
+    this._retryTimes = 2
+  }
 
   request(url, data, method = 'GET', header, complete) {
     return new Promise((resolve, reject) => {
@@ -120,13 +122,13 @@ export default {
         },
       })
     })
-  },
+  }
 
   get(url, data, header) {
     return this.request(url, data, 'GET', header)
-  },
+  }
 
   post(url, data, header) {
     return this.request(url, data, 'POST', header)
-  },
+  }
 }
